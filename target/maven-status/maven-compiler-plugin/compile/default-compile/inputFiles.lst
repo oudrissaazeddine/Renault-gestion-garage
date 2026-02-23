@@ -1,0 +1,15 @@
+/Users/oudriss/Documents/Renault-gestion-garage/src/main/java/com/oudriss/Renault_gestion_garage/RenaultGestionGarageApplication.java
+/Users/oudriss/Documents/Renault-gestion-garage/src/main/java/com/oudriss/Renault_gestion_garage/controller/GarageController.java
+/Users/oudriss/Documents/Renault-gestion-garage/src/main/java/com/oudriss/Renault_gestion_garage/entity/Accessory.java
+/Users/oudriss/Documents/Renault-gestion-garage/src/main/java/com/oudriss/Renault_gestion_garage/entity/AccessoryType.java
+/Users/oudriss/Documents/Renault-gestion-garage/src/main/java/com/oudriss/Renault_gestion_garage/entity/FuelType.java
+/Users/oudriss/Documents/Renault-gestion-garage/src/main/java/com/oudriss/Renault_gestion_garage/entity/Garage.java
+/Users/oudriss/Documents/Renault-gestion-garage/src/main/java/com/oudriss/Renault_gestion_garage/entity/OpeningTime.java
+/Users/oudriss/Documents/Renault-gestion-garage/src/main/java/com/oudriss/Renault_gestion_garage/entity/Vehicle.java
+/Users/oudriss/Documents/Renault-gestion-garage/src/main/java/com/oudriss/Renault_gestion_garage/entity/VehicleType.java
+/Users/oudriss/Documents/Renault-gestion-garage/src/main/java/com/oudriss/Renault_gestion_garage/repository/AccessoryRepository.java
+/Users/oudriss/Documents/Renault-gestion-garage/src/main/java/com/oudriss/Renault_gestion_garage/repository/GarageRepository.java
+/Users/oudriss/Documents/Renault-gestion-garage/src/main/java/com/oudriss/Renault_gestion_garage/repository/VehicleRepository.java
+/Users/oudriss/Documents/Renault-gestion-garage/src/main/java/com/oudriss/Renault_gestion_garage/service/AccessoryService.java
+/Users/oudriss/Documents/Renault-gestion-garage/src/main/java/com/oudriss/Renault_gestion_garage/service/GarageService.java
+/Users/oudriss/Documents/Renault-gestion-garage/src/main/java/com/oudriss/Renault_gestion_garage/service/VehicleService.java

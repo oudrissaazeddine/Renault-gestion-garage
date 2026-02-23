@@ -15,7 +15,6 @@ import java.util.Map;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class Garage {
 
     @Id
@@ -45,7 +44,7 @@ public class Garage {
     @MapKeyColumn(name = "day_of_week")
     @MapKeyEnumerated(EnumType.STRING)
     @Column(name = "opening_time")
-    private Map<DayOfWeek, List<OpeningTime>> horairesOuverture = new HashMap<>();
+    private Map<DayOfWeek, OpeningTime> horairesOuverture = new HashMap<>();
 
     @OneToMany(mappedBy = "garage", cascade = CascadeType.ALL, orphanRemoval = true)
     @ToString.Exclude
