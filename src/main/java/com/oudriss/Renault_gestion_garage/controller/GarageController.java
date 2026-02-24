@@ -1,9 +1,12 @@
 package com.oudriss.Renault_gestion_garage.controller;
 
 
+import com.oudriss.Renault_gestion_garage.dto.GarageRequest;
+import com.oudriss.Renault_gestion_garage.dto.GarageResponse;
 import com.oudriss.Renault_gestion_garage.entity.Garage;
 import com.oudriss.Renault_gestion_garage.service.GarageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,13 +21,8 @@ public class GarageController {
     private GarageService garageService;
 
     @PostMapping
-    public ResponseEntity<Garage> createGarage(@RequestBody Garage garage) {
-        Garage created = garageService.createGarage(garage);
-        if (created == null) {
-            return ResponseEntity.notFound().build();
-        } else {
-            return ResponseEntity.ok(created);
-        }
+    public ResponseEntity<GarageResponse> createGarage(@RequestBody GarageRequest request) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(garageService.createGarage(request));
     }
 
     @PostMapping("/{id}")

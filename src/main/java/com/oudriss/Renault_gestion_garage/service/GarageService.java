@@ -1,5 +1,8 @@
 package com.oudriss.Renault_gestion_garage.service;
 
+import com.oudriss.Renault_gestion_garage.dto.GarageRequest;
+import com.oudriss.Renault_gestion_garage.dto.GarageResponse;
+import com.oudriss.Renault_gestion_garage.dto.OpeningTimeDto;
 import com.oudriss.Renault_gestion_garage.entity.*;
 import com.oudriss.Renault_gestion_garage.repository.GarageRepository;
 import lombok.RequiredArgsConstructor;
@@ -7,8 +10,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.DayOfWeek;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -18,10 +25,12 @@ public class GarageService {
 
     private final GarageRepository garageRepository;
 
-    public Garage createGarage(Garage garage) {
-        log.info("Creating garage: {}", garage.getName());
+    public GarageResponse createGarage(GarageRequest request) {
+        log.info("Creating garage: {}", request.getName());
+        Garage garage = new Garage();
+        updateGarageFromRequest(garage, request);
         Garage savedGarage = garageRepository.save(garage);
-        return savedGarage;
+        return mapToResponse(savedGarage);
     }
 
 
@@ -58,5 +67,50 @@ public class GarageService {
             log.info("Garage deleted: {}", id);
         }
 
+    }
+
+    private void updateGarageFromRequest(Garage garage, GarageRequest request) {
+        garage.setName(request.getName());
+        garage.setAddress(request.getAddress());
+        garage.setTelephone(request.getTelephone());
+        garage.setEmail(request.getEmail());
+
+        if (request.getHorairesOuverture() != null) {
+            Map<DayOfWeek, List<OpeningTime>> horaires = new HashMap<>();
+            request.getHorairesOuverture().forEach((day, times) -> {
+                List<OpeningTime> openingTimes = times.stream()
+                        .map(dto -> new OpeningTime(dto.getStartTime(), dto.getEndTime()))
+                        .collect(Collectors.toList());
+                horaires.put(day, openingTimes);
+            });
+            garage.setHorairesOuverture(horaires);
+        }
+    }
+
+    private GarageResponse mapToResponse(Garage garage) {
+        GarageResponse response = new GarageResponse();
+        response.setId(garage.getId());
+        response.setName(garage.getName());
+        response.setAddress(garage.getAddress());
+        response.setTelephone(garage.getTelephone());
+        response.setEmail(garage.getEmail());
+        response.setVehicleCount(garage.getVehicleCount());
+
+        if (garage.getHorairesOuverture() != null) {
+            Map<DayOfWeek, List<OpeningTimeDto>> horaires = new HashMap<>();
+            garage.getHorairesOuverture().forEach((day, times) -> {
+                List<OpeningTimeDto> dtos = times.stream()
+                        .map(t -> {
+                            OpeningTimeDto dto = new OpeningTimeDto();
+                            dto.setStartTime(t.getStartTime());
+                            dto.setEndTime(t.getEndTime());
+                            return dto;
+                        })
+                        .collect(Collectors.toList());
+                horaires.put(day, dtos);
+            });
+            response.setHorairesOuverture(horaires);
+        }
+        return response;
     }
 }
