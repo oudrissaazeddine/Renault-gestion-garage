@@ -19,6 +19,9 @@ public class GarageRequest {
     @NotBlank(message = "L'adresse est obligatoire")
     private String address;
 
+    private String city;
+    private String postalCode;
+
     @NotBlank(message = "Le téléphone est obligatoire")
     private String telephone;
 
@@ -28,5 +31,5 @@ public class GarageRequest {
 
     @NotNull(message = "Les horaires d'ouverture sont obligatoires")
     @Valid
-    private Map<DayOfWeek, OpeningTimeDto> horairesOuverture;
+    private Map<DayOfWeek, List<OpeningTimeDto>> horairesOuverture;
 }

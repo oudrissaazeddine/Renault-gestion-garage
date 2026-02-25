@@ -1,1 +1,4 @@
-com/oudriss/Renault_gestion_garage/RenaultGestionGarageApplicationTests.class
+com/oudriss/Renault_gestion_garage/service/GarageServiceTest.class
+com/oudriss/Renault_gestion_garage/integration/GarageVehicleIntegrationTest.class
+com/oudriss/Renault_gestion_garage/controller/GarageControllerTest.class
+com/oudriss/Renault_gestion_garage/service/VehicleServiceTest.class

@@ -1,1 +1,4 @@
-/Users/oudriss/Documents/Renault-gestion-garage/src/test/java/com/oudriss/Renault_gestion_garage/RenaultGestionGarageApplicationTests.java
+/Users/oudriss/Documents/Renault-gestion-garage/src/test/java/com/oudriss/Renault_gestion_garage/controller/GarageControllerTest.java
+/Users/oudriss/Documents/Renault-gestion-garage/src/test/java/com/oudriss/Renault_gestion_garage/integration/GarageVehicleIntegrationTest.java
+/Users/oudriss/Documents/Renault-gestion-garage/src/test/java/com/oudriss/Renault_gestion_garage/service/GarageServiceTest.java
+/Users/oudriss/Documents/Renault-gestion-garage/src/test/java/com/oudriss/Renault_gestion_garage/service/VehicleServiceTest.java

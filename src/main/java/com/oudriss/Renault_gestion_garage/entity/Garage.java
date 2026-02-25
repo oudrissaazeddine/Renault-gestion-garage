@@ -1,7 +1,9 @@
 package com.oudriss.Renault_gestion_garage.entity;
 
+import com.oudriss.Renault_gestion_garage.converter.HorairesOuvertureConverter;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 import java.time.DayOfWeek;
@@ -15,6 +17,7 @@ import java.util.Map;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Garage {
 
     @Id
@@ -29,6 +32,9 @@ public class Garage {
     @Column(nullable = false)
     private String address;
 
+    private String city;
+    private String postalCode;
+
     @NotBlank(message = "Le téléphone est obligatoire")
     @Column(nullable = false)
     private String telephone;
@@ -38,13 +44,9 @@ public class Garage {
     @Column(nullable = false)
     private String email;
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "garage_opening_hours",
-            joinColumns = @JoinColumn(name = "garage_id"))
-    @MapKeyColumn(name = "day_of_week")
-    @MapKeyEnumerated(EnumType.STRING)
-    @Column(name = "opening_time")
-    private Map<DayOfWeek, OpeningTime> horairesOuverture = new HashMap<>();
+    @Convert(converter = HorairesOuvertureConverter.class)
+    @Column(name = "horaires_ouverture", columnDefinition = "TEXT")
+    private Map<DayOfWeek, List<OpeningTime>> horairesOuverture = new HashMap<>();
 
     @OneToMany(mappedBy = "garage", cascade = CascadeType.ALL, orphanRemoval = true)
     @ToString.Exclude

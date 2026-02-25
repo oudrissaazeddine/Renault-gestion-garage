@@ -31,6 +31,8 @@ public class Vehicle {
     private String model;
 
     @NotNull(message = "L'année de fabrication est obligatoire")
+    @Min(value = 1886, message = "Année invalide")
+    @Max(value = 2100, message = "Année invalide")
     @Column(nullable = false, name = "annee_fabrication")
     private Integer anneeFabrication;
 
@@ -42,6 +44,9 @@ public class Vehicle {
     @Enumerated(EnumType.STRING)
     @Column(name = "vehicle_type")
     private VehicleType vehicleType;
+
+    private String color;
+    private String licensePlate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "garage_id", nullable = false)

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.oudriss.Renault_gestion_garage.integration.GarageVehicleIntegrationTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.999 s -- in com.oudriss.Renault_gestion_garage.integration.GarageVehicleIntegrationTest

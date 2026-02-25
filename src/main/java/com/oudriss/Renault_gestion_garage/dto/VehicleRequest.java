@@ -2,6 +2,8 @@ package com.oudriss.Renault_gestion_garage.dto;
 
 import com.oudriss.Renault_gestion_garage.entity.FuelType;
 import com.oudriss.Renault_gestion_garage.entity.VehicleType;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -16,10 +18,14 @@ public class VehicleRequest {
     private String model;
 
     @NotNull(message = "L'année de fabrication est obligatoire")
+    @Min(value = 1886, message = "Année invalide")
+    @Max(value = 2100, message = "Année invalide")
     private Integer anneeFabrication;
 
     @NotNull(message = "Le type de carburant est obligatoire")
     private FuelType typeCarburant;
 
     private VehicleType vehicleType;
+    private String color;
+    private String licensePlate;
 }

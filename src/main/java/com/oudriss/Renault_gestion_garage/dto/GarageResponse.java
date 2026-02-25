@@ -15,6 +15,6 @@ public class GarageResponse {
     private String postalCode;
     private String telephone;
     private String email;
-    private Map<DayOfWeek, OpeningTimeDto> horairesOuverture;
+    private Map<DayOfWeek, List<OpeningTimeDto>> horairesOuverture;
     private int vehicleCount;
 }

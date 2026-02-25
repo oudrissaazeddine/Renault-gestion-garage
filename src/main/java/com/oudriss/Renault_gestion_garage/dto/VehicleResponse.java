@@ -14,6 +14,8 @@ public class VehicleResponse {
     private Integer anneeFabrication;
     private FuelType typeCarburant;
     private VehicleType vehicleType;
+    private String color;
+    private String licensePlate;
     private Long garageId;
     private String garageName;
     private List<AccessoryResponse> accessories;

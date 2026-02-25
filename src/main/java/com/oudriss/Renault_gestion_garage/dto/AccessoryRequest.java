@@ -18,6 +18,7 @@ public class AccessoryRequest {
     private String description;
 
     @NotNull(message = "Le prix est obligatoire")
+    @DecimalMin(value = "0.0", inclusive = false, message = "Le prix doit être positif")
     private BigDecimal prix;
 
     @NotNull(message = "Le type est obligatoire")
