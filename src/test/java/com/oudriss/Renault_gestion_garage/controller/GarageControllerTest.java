@@ -53,7 +53,7 @@ class GarageControllerTest {
         validRequest.setName("Garage Test");
         validRequest.setAddress("10 Rue Test");
         validRequest.setTelephone("0123456789");
-        validRequest.setEmail("test@garage.fr");
+        validRequest.setEmail("test@garage.ma");
         validRequest.setHorairesOuverture(Map.of(DayOfWeek.MONDAY, List.of(openingTime)));
 
         sampleResponse = new GarageResponse();
@@ -61,7 +61,7 @@ class GarageControllerTest {
         sampleResponse.setName("Garage Test");
         sampleResponse.setAddress("10 Rue Test");
         sampleResponse.setTelephone("0123456789");
-        sampleResponse.setEmail("test@garage.fr");
+        sampleResponse.setEmail("test@garage.ma");
     }
 
     @Test

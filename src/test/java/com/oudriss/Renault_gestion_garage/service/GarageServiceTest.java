@@ -41,11 +41,11 @@ class GarageServiceTest {
     void setUp() {
         validRequest = new GarageRequest();
         validRequest.setName("Garage Centrale");
-        validRequest.setAddress("10 Rue de la Paix");
-        validRequest.setCity("Paris");
+        validRequest.setAddress("10 Rue oudriss");
+        validRequest.setCity("Rabat");
         validRequest.setPostalCode("75001");
         validRequest.setTelephone("0123456789");
-        validRequest.setEmail("contact@garage-centrale.fr");
+        validRequest.setEmail("contact@Renault.com");
 
         OpeningTimeDto openingTime = new OpeningTimeDto();
         openingTime.setStartTime(LocalTime.of(8, 0));
@@ -59,9 +59,9 @@ class GarageServiceTest {
         sampleGarage = new Garage();
         sampleGarage.setId(1L);
         sampleGarage.setName("Garage Centrale");
-        sampleGarage.setAddress("10 Rue de la Paix");
-        sampleGarage.setCity("Paris");
-        sampleGarage.setEmail("contact@garage-centrale.fr");
+        sampleGarage.setAddress("10 Rue oudriss");
+        sampleGarage.setCity("Rabat");
+        sampleGarage.setEmail("contact@renault.com");
         sampleGarage.setTelephone("0123456789");
         sampleGarage.setHorairesOuverture(new HashMap<>());
         sampleGarage.setVehicles(new ArrayList<>());

@@ -54,7 +54,7 @@ class GarageVehicleIntegrationTest {
         GarageRequest garageRequest = new GarageRequest();
         garageRequest.setName("Garage Intégration");
         garageRequest.setAddress("1 Rue Integration");
-        garageRequest.setCity("Lyon");
+        garageRequest.setCity("Rabat");
         garageRequest.setTelephone("0456789012");
         garageRequest.setEmail("integration@test.fr");
         garageRequest.setHorairesOuverture(Map.of(DayOfWeek.MONDAY, List.of(openingTime)));
@@ -66,8 +66,8 @@ class GarageVehicleIntegrationTest {
     void fullFlow_createGarageAndVehicle_shouldPersistCorrectly() {
         // Given
         VehicleRequest vehicleRequest = new VehicleRequest();
-        vehicleRequest.setBrand("Peugeot");
-        vehicleRequest.setModel("308");
+        vehicleRequest.setBrand("Renault");
+        vehicleRequest.setModel("Megan");
         vehicleRequest.setAnneeFabrication(2023);
         vehicleRequest.setTypeCarburant(FuelType.HYBRIDE);
         vehicleRequest.setVehicleType(VehicleType.BERLINE);
@@ -77,7 +77,7 @@ class GarageVehicleIntegrationTest {
 
         // Then
         assertThat(vehicle.getId()).isNotNull();
-        assertThat(vehicle.getBrand()).isEqualTo("Peugeot");
+        assertThat(vehicle.getBrand()).isEqualTo("Renault");
         assertThat(vehicle.getGarageId()).isEqualTo(createdGarage.getId());
         assertThat(vehicle.getGarageName()).isEqualTo("Garage Intégration");
 
